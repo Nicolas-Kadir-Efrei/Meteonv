@@ -9,17 +9,14 @@ function ColorSchemesExample() {
   return (
     <>
       <Navbar bg="dark" data-bs-theme="dark">
-        <Container>
-          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+        <Container className="d-flex justify-content-between align-items-center">
+          <h8 className="text-white mb-0 me-2">METEO KADIR CIFTCI</h8> {/* Reduced margin with me-2 */}
+          <Navbar.Brand href="Home" className="mb-0">Acceuil</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="caca">Pricing</Nav.Link>
+            <Nav.Link href="Contact">Contact</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
-    
-
     </>
   );
 }
