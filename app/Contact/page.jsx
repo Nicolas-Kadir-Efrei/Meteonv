@@ -10,7 +10,7 @@ export default function Contact() {
         <ColorSchemesExample/>
     </div>
     <div className="TitreContact">
-    <img src={pfp} className="pfpbg"  />
+    <img src={pfp} className="pfpbg"/>
 
 </div>
 
