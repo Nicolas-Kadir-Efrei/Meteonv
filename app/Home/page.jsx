@@ -7,10 +7,8 @@ import ColorSchemesExample from '../components/Navbar';
 export default function Home() {
   const [inputValue, setInputValue] = useState('');
 
-  // Fonction pour gérer le changement de l'input et capitaliser la première lettre
   const handleChange = (e) => {
     const value = e.target.value;
-    // Capitalise la première lettre et concatène le reste du texte
     const capitalizedValue = value.charAt(0).toUpperCase() + value.slice(1);
     setInputValue(capitalizedValue);
   };
@@ -32,11 +30,11 @@ export default function Home() {
             className="inputcon"
             type="text" 
             value={inputValue} 
-            onChange={handleChange} // Appel à handleChange ici
-            placeholder="Tapez quelque chose"
+            onChange={handleChange} 
+            placeholder="Tapez une ville"
           />
           <Link href={`/${encodeURIComponent(inputValue)}`}>
-            <button className="AHTAGRANDMERE" type="submit">Appuie</button>
+            <button className="AHTAGRANDMERE" type="submit">Recherche</button>
           </Link>
         </form>
       </div>

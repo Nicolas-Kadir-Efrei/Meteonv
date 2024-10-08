@@ -1,28 +1,93 @@
 'use client';
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Suspense } from "react";
-import Link from 'next/link'; // Ajout de l'import pour le composant Link
+import Link from 'next/link';
 import Loading from "./loading";
 import ColorSchemesExample from "../components/Navbar";
 
-const icsun = '/assets/img/sun.png';
-const icnight = '/assets/img/night.png';
-const hum ='/assets/img/humidity.png'
+const icons = {
+  clear: '/assets/img/sun.png',
+  clouds: '/assets/img/cloud.png',
+  rain: '/assets/img/rain.png',
+  snow: '/assets/img/snow.png',
+  night: '/assets/img/night.png',
+  humidity: '/assets/img/humidity.png',
+  wind: '/assets/img/wind.png',
+  thermdown: '/assets/img/thermdown.png',
+  thermup: '/assets/img/thermup.png',
+};
 
 export default function Pageville({ params }) {
   const [inputValue, setInputValue] = useState('');
+  const [weatherData, setWeatherData] = useState(null);
+  const [forecastData, setForecastData] = useState(null);
+  const [error, setError] = useState(null);
 
-  // Fonction pour gérer le changement de l'input et capitaliser la première lettre
   const handleChange = (e) => {
     const value = e.target.value;
-    // Capitalise la première lettre et concatène le reste du texte
     const capitalizedValue = value.charAt(0).toUpperCase() + value.slice(1);
     setInputValue(capitalizedValue);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+  };
+
+  useEffect(() => {
+    const fetchWeatherData = async () => {
+      try {
+        const currentWeatherResponse = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${params.ville}&appid=a5d25ce6acf4cdbbfba35338df6f794f&units=metric`);
+        const forecastResponse = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${params.ville}&appid=a5d25ce6acf4cdbbfba35338df6f794f&units=metric`);
+        
+        if (!currentWeatherResponse.ok || !forecastResponse.ok) {
+          throw new Error("Erreur lors de la récupération des données");
+        }
+        
+        const currentData = await currentWeatherResponse.json();
+        const forecastData = await forecastResponse.json();
+        
+        setWeatherData(currentData);
+        setForecastData(forecastData);
+        setError(null);
+      } catch (error) {
+        setError("Impossible de récupérer les données météo. Veuillez réessayer plus tard.");
+      }
+    };
+
+    if (params.ville) {
+      fetchWeatherData();
+    }
+  }, [params.ville]);
+
+  const getWeatherIcon = (weatherCondition) => {
+    const condition = weatherCondition.toLowerCase();
+    if (condition.includes("clear")) return icons.clear;
+    if (condition.includes("clouds")) return icons.clouds;
+    if (condition.includes("rain")) return icons.rain;
+    if (condition.includes("snow")) return icons.snow;
+    return icons.night;
+  };
+
+  const getDayOfWeek = (date) => {
+    const options = { weekday: 'long' }; // Options for long day name
+    return new Date(date).toLocaleDateString('fr-FR', options);
+  };
+
+  const getNext5DaysForecast = (forecastList) => {
+    const dailyData = {};
+    const today = new Date().setHours(0, 0, 0, 0);
+    
+    forecastList.forEach(item => {
+      const date = new Date(item.dt * 1000).setHours(0, 0, 0, 0);
+      if (date >= today && Object.keys(dailyData).length < 5) {
+        if (!dailyData[date]) {
+          dailyData[date] = item;
+        }
+      }
+    });
+
+    return Object.values(dailyData);
   };
 
   return (
@@ -32,78 +97,104 @@ export default function Pageville({ params }) {
       </div>
 
       <div className="CONTAINERDECON">
-        <div className="weather-row">
-          <div id="weather-container">
-            <h2>Méteo</h2>
-            <form onSubmit={handleSubmit}>
-              <input
-                type="text"
-                id="city"
-                value={inputValue}
-                onChange={handleChange}  // L'appel à handleChange est ici
-                placeholder="Tapez quelque chose"
-              />
-              <Link href={`/${encodeURIComponent(inputValue)}`}>
-                <button className="buttoncard" type="submit">Recherche</button>
-              </Link>
-            </form>
-            
-            <div id="temp-div">
-              <h1>Aujourd'hui</h1>
-              <img id="weather-icon" alt="Weather Icon" src={icsun} />
-              <h1>13°C</h1>
-            </div>
+        <div id="weather-container">
+          <h2>Météo</h2>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              id="city"
+              value={inputValue}
+              onChange={handleChange}
+              placeholder="Tapez quelque chose"
+            />
+            <Link href={`/${encodeURIComponent(inputValue)}`}>
+              <button className="buttoncard" type="submit">Recherche</button>
+            </Link>
+          </form>
 
+          {error ? (
+            <div className="error-message">
+              <p>{error}</p>
+            </div>
+          ) : (
+            weatherData && (
+              <div id="temp-div">
+                <h1>Aujourd'hui</h1>
+                <img 
+                  id="weather-icon" 
+                  alt="Weather Icon" 
+                  src={getWeatherIcon(weatherData.weather[0].main)} 
+                />
+                <h1>{Math.round(weatherData.main.temp)}°C</h1>
+
+                <div className="updodwn">
+                <h2> <img src={icons.thermup} className="therme" /> {Math.round(weatherData.main.temp_max)}°C</h2>
+                <h2> <img src={icons.thermdown} className="therme"  /> {Math.round(weatherData.main.temp_min)}°C</h2>
+                </div>
+           
+              </div>
+            )
+          )}
+
+          {weatherData && (
             <div id="weather-info">
-              <h5>{params.ville}</h5>
-              <h5>13:00</h5>
+              <h5>{weatherData.name}</h5>
+              <h5>{new Date(weatherData.dt * 1000).toLocaleTimeString()}</h5>
             </div>
+          )}
 
-            <div id="hourly-forecast">
-              {["00:00", "01:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00"].map((hour, index) => (
-                <div key={index} className="hourly-item">
-                  <span>{hour}</span>
-                  <img src={icnight} alt="Hourly Weather Icon" />
-                  <span>15°C</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="week-container">
-            {["Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche", "Lundi"].map((day, index) => (
-              <div key={index} id="weather-container3">
-                <h1>{day}</h1>
-                <img id="weather-icon2" alt="Weather Icon" src={icsun} />
-                <div id="temp-div2">
-                  <h5>13°C</h5>
-                </div>
-                <div id="weather-info2">
-                  <h5>{params.ville}</h5>
-                  <h5>13:00</h5>
-                </div>
-
-                <div className="Humidty-Wind-data">
-                  <div className="col">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-wind" viewBox="0 0 16 16">
-                      <path d="M12.5 2A2.5 2.5 0 0 0 10 4.5a.5.5 0 0 1-1 0A3.5 3.5 0 1 1 12.5 8H.5a.5.5 0 0 1 0-1h12a2.5 2.5 0 0 0 0-5m-7 1a1 1 0 0 0-1 1 .5.5 0 0 1-1 0 2 2 0 1 1 2 2h-5a.5.5 0 0 1 0-1h5a1 1 0 0 0 0-2M0 9.5A.5.5 0 0 1 .5 9h10.042a3 3 0 1 1-3 3 .5.5 0 0 1 1 0 2 2 0 1 0 2-2H.5a.5.5 0 0 1-.5-.5" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p>Vitesse</p>
-                    <span>15km/h</span>
-                  </div>
-                  <div className="col">
-                   <img src={hum} alt="" />
-                  </div>
-                  <div>
-                    <p>Humidité</p>
-                    <span>90%</span>
-                  </div>
-                </div>
+          <div id="hourly-forecast">
+            {forecastData && forecastData.list.slice(0, 8).map((hour, index) => (
+              <div key={index} className="hourly-item">
+                <span>{new Date(hour.dt * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+                <img 
+                  src={getWeatherIcon(hour.weather[0].main)} 
+                  alt="Hourly Weather Icon" 
+                />
+                <span>{Math.round(hour.main.temp)}°C</span>
               </div>
             ))}
           </div>
+        </div>
+
+        <div className="week-container">
+          {forecastData && getNext5DaysForecast(forecastData.list).map((day, index) => (
+            <div key={index} id="weather-container3">
+              <h1>{index === 0 ? 'Aujourd\'hui' : getDayOfWeek(day.dt * 1000)}</h1>
+              <div id="weather-info2">
+                <h5>{params.ville}</h5>
+              </div>
+              <img 
+                id="weather-icon2" 
+                alt="Weather Icon" 
+                src={getWeatherIcon(day.weather[0].main)}
+              />
+              
+
+              <div id="couleur">
+                
+
+                <p> <img src={icons.thermdown} className="therme" />Température minimale : {Math.round(day.main.temp_min)}°C</p>
+                <p> <img src={icons.thermup} className="therme" />Température maximale : {Math.round(day.main.temp_max)}°C</p>  
+              </div>
+
+
+
+              <div className="Humidity-Wind-data">
+  <div className="col">
+    <img src={icons.wind} alt="Wind Icon" />
+    <p>Vitesse</p>
+    <span>{Math.round(day.wind.speed)} km/h</span>
+  </div>
+  <div className="col">
+    <img src={icons.humidity} alt="Humidity Icon" />
+    <p>Humidité</p>
+    <span>{day.main.humidity}%</span>
+  </div>
+</div>
+
+            </div>
+          ))}
         </div>
       </div>
     </Suspense>

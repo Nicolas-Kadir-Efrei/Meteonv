@@ -1,5 +1,5 @@
 /*--------------------------------Navbar-------------------------------------*/
-h8 {
+.h8 {
     color: #ffffff;
     display: flex; /* Use flexbox for alignment */
     align-items: flex-start; /* Align items to the start (top) */
@@ -95,20 +95,62 @@ margin-top: 40px;
 }     
 
 
-.CONTAINERDECON {
+#weather-search {
+    background-image: linear-gradient(45deg, #ffffff1c, #00000048);
+       opacity: 1;
 
-       display: flex;
-       align-items: flex-start;
-       justify-content: flex-start;
-       height: 100vh;
-       margin: 0;
-       flex-direction: column;
-       padding-left: 50px;
-       background-repeat: no-repeat;
-       background-size: cover;
+    width: 220px;
+    height: 320px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 16px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    margin-top: 10px;
+    transition: 0.7s;
+}
+#weather-search h2 {
+    color: #ffffff;
+
+}
+
+#weather-search:hover {
+    transform: scale(1.2);
+    z-index: 2;
+    background-color: #03030393;
+
+}
+
+
+.CONTAINERDECON {
+    
+    display: flex;
+    align-items: center; /* Aligne les éléments horizontalement au centre */
+    justify-content: flex-start;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+    margin-right: 30px;
+    background-repeat: no-repeat;
+    background-size: cover;
    }
+
+   .updodwn {
+    display: flex;
+    gap: 10px; /* Optionnel: Ajoute de l'espace entre les éléments */
+    align-items: center; /* Optionnel: Aligne verticalement les éléments au centre */
+    position: relative;
+    justify-content: center; /* Centre horizontalement les éléments */
+}
+
    
-   /* Nouvelle classe pour aligner weather-container2 et weather-container3 */
+   .CONTAINERDECON h2{
+
+    color: white;
+   }
+
+
    .weather-row {
        display: flex;
        justify-content: space-between; /* Répartit l'espace entre les conteneurs */
@@ -125,7 +167,7 @@ margin-top: 40px;
    #weather-container{
     background-image: linear-gradient(45deg, #ffffff1c, #00000048);
        opacity: 1;
-       width: 550px;
+       width: 530px;
        height: 680px;
        border-radius: 25px;
        box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
@@ -140,7 +182,7 @@ margin-top: 40px;
    }
    
 
-   #weather-container h2{
+   #weather-container h1, p{
 
     color: #ffffff;
    }
@@ -160,10 +202,7 @@ margin-top: 40px;
    
 
     
-   h1, h2, label,h5 {
-       color: #f6f0f0;
-       margin: 8px 0;
-   }
+
 
 
    input {
@@ -190,13 +229,13 @@ margin-top: 40px;
    }
    
    .buttoncard:hover {
-       background: #ea3dbf;
+       background: #fff7ff44;
    }
    
-   #temp-div h1 {
+   #temp-div h1, h2 {
        font-size: 45px;
        margin-top: -0px;
-       color: #fff;
+       color: #ffffff;
    }
    
    #weather-info {
@@ -211,17 +250,17 @@ margin-top: 40px;
        margin-bottom: 30px;
        margin-top: 25px;
    }
-   
    #hourly-forecast {
-       margin-top: 50px;
-       overflow-x: auto;
-       white-space: nowrap;
-       display: flex;
-       justify-content: space-between;
-   }
-   #hourly-forecast::-webkit-scrollbar   {
-    width: 0;
+    margin-top: 50px;
+    overflow-x: auto; /* Allow horizontal scrolling */
+    overflow-y: hidden; /* No vertical scroll */
+    display: flex; /* Aligns items horizontally */
+    white-space: nowrap; /* Prevents line breaks */
+}
 
+#hourly-forecast::-webkit-scrollbar {
+    display: none;  /* For Chrome, Safari, and Opera: Hides the scrollbar */
+}
 
    }
    .hourly-item {
@@ -239,7 +278,9 @@ margin-top: 40px;
        height: 40px;
        margin-bottom: 5px;
    }
-   
+   h7{
+    font-size: 15px;    
+   }
    #hourly-heading {
        color: #fff;
        margin-top: 10px;
@@ -250,8 +291,8 @@ margin-top: 40px;
     background-image: linear-gradient(45deg, #ffffff1c, #00000048);
        opacity: 1;
 
-    width: 220px;
-    height: 320px;
+    width: 300px;
+    height: 360px;
     padding: 20px;
     border-radius: 20px;
     box-shadow: 0 4px 16px rgba(255, 255, 255, 0.1);
@@ -280,10 +321,11 @@ margin-top: 40px;
     margin-bottom: 10px;
 }
 
-#temp-div2 h5 {
-    font-size: 20px; /* 50px * 0.65 = 32.5px */
-    margin-top: 0;
-    color: #ffffff;
+
+#couleur{
+    color: white;
+    font-size: 10px;
+    padding-top: 10px;
 }
 
 
@@ -292,33 +334,57 @@ margin-top: 40px;
     color: #ffffff ;
 }
 
-.Humidty-Wind-data {
-        width: 100%;
-        padding:10px;
-        padding-bottom: 10px;
-    gap: 10px;
-        color: #fff;
-        display: flex;
-        justify-content: space-between;
-    }
-    
-    .Humidty-Wind-data .col {
-        display: flex;
-        align-items: flex-start;
-        gap: 12px;
-        font-size: 11px;
-    }
-    
-    .Humidty-Wind-data .col span {
-        display: block;
-        font-size: 16px;
-    }
-    
-    .Humidty-Wind-data .col img {
-        width: 20px;
-        margin-top: 10px;
-    }
+.Humidity-Wind-data {
+    width: 100%;
+    padding: 10px;
+    padding-bottom: 10px;
+    color: #fff;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    gap: 10px; /* Space between items */
+}
 
+.Humidity-Wind-data .col {
+    display: flex;
+    align-items: center; /* Center align items vertically */
+    gap: 12px; /* Space between icon and text */
+    font-size: 11px;
+}
+
+.Humidity-Wind-data .col span {
+    display: block;
+    font-size: 19px;
+    color: white;
+}
+
+.Humidity-Wind-data .col img {
+    max-width: 20px;
+    max-height: 20px;
+    margin-top: 0; /* Remove margin to align better */
+    padding: 0;
+}
+
+
+/* Exemple de CSS pour les icônes */
+.therme{
+    width: 20px;
+    height: 20px;
+}
+  
+  .col {
+    display: flex;
+    align-items: center; /* Aligne les icônes avec le texte */
+    color: white;
+    padding: 0;
+  }
+  
+  .col img {
+    width: 30px; /* Ajustez la taille selon vos besoins */
+    height: auto; /* Conserve le ratio d'aspect */
+    margin-right: 8px; /* Espacement entre l'icône et le texte */
+  }
+  
+  
 .week-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -326,7 +392,7 @@ margin-top: 40px;
     justify-content: space-between;
 }
 
-}
+
 
 @media only screen and (min-width: 1024px) and (max-width: 1230px) {
 
@@ -406,9 +472,10 @@ margin-top: 40px;
        
     
        
-       h1, h2, label,h5 {
+       h1, h2, p, label,h5 {
            color: #ffffff;
            margin: 8px 0;
+           font-size: 40px;
        }
     
     
@@ -1010,6 +1077,7 @@ margin-top: 40px;
     }
     
     #weather-icon2 {
+        font-size: 10px;
         width: 78px; /* 120px * 0.65 = 78px */
         height: 78px; /* 120px * 0.65 = 78px */
         margin: 0 auto 5px;
