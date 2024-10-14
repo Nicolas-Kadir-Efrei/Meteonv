@@ -11,7 +11,7 @@ function ColorSchemesExample() {
       <Navbar bg="dark" data-bs-theme="dark">
         <Container className="d-flex justify-content-between align-items-center">
           <h8 className="text-white mb-0 me-2">METEO KADIR CIFTCI</h8> {/* Reduced margin with me-2 */}
-          <Navbar.Brand href="Home" className="mb-0">Acceuil</Navbar.Brand>
+          <Navbar.Brand href="Home" className="mb-0">Accueil</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="Contact">Contact</Nav.Link>
           </Nav>
