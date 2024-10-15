@@ -1,4 +1,14 @@
+// Loader.js
+import React from 'react';
+import './Loader.css'; // Import the CSS file for styling the loader
 
-export default function Loading() {
-    return <h1>Chargement...</h1>
-}
+const Loader = () => {
+  return (
+    <div className="loader">
+      <div className="hypnotic"></div> {/* Use the hypnotic loader */}
+      <p>Loading...</p>
+    </div>
+  );
+};
+
+export default Loader;

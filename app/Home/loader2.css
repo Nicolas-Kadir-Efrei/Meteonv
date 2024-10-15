@@ -1,0 +1,50 @@
+/* loader2.css */
+
+.loader-container {
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Take full viewport height */
+    background-color: #000; /* Optional: set background color for contrast */
+}
+
+.loader {
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    color: #fff; /* Set text color to white */
+}
+
+.hypnotic {
+    width: 67.2px;
+    height: 28px;
+    border: 2.2px solid #ffffff;
+    border-radius: 50%;
+    display: grid;
+    animation: hypnotic-ds34hk 2s infinite linear;
+}
+
+.hypnotic:before,
+.hypnotic:after {
+    content: "";
+    grid-area: 1/1;
+    border: inherit;
+    border-radius: 50%;
+    animation: inherit;
+    animation-duration: 3s;
+}
+
+.hypnotic:after {
+    --s: -1;
+}
+
+@keyframes hypnotic-ds34hk {
+    100% {
+        transform: rotate(calc(var(--s, 1) * 1turn));
+    }
+}
+
+.loader-text {
+    margin-top: 10px; /* Space between the loader and text */
+}

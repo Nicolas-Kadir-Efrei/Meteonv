@@ -1,13 +1,3 @@
-/* Variables */
-:root {
-    --primary-color: #ffffff;
-    --secondary-color: #000000;
-    --background-color: #03030393;
-    --border-color: rgba(255, 255, 255, 0.1);
-    --box-shadow: 0 4px 16px rgba(255, 255, 255, 0.1);
-    --backdrop-filter: blur(5px);
-}
-
 .titre-contact{
     display: flex;
     gap: 10px; /* Optionnel: Ajoute de l'espace entre les éléments */
@@ -103,6 +93,15 @@ border: none;
     margin-top: 40px;
     }        
 
+/* Variables */
+:root {
+    --primary-color: #ffffff;
+    --secondary-color: #000000;
+    --background-color: #03030393;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --box-shadow: 0 4px 16px rgba(255, 255, 255, 0.1);
+    --backdrop-filter: blur(5px);
+}
 
 /* Global Styles */
 * {
@@ -116,7 +115,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url(/assets/img/earth1.png);   
+    background-image: url(/assets/img/earth.png);   
 }
 
 /* Containers */
@@ -136,7 +135,7 @@ body {
 #weather-container {
     background-image: linear-gradient(45deg, #ffffff1c, #00000048);
     opacity: 1;
-    width: 60%; /* Largeur en pourcentage pour s'adapter */
+    width: 50%; /* Largeur en pourcentage pour s'adapter */
     height: auto;
     border-radius: 25px;
     box-shadow: var(--box-shadow);
@@ -249,7 +248,7 @@ input {
 
 .hourly-item {
     flex: 0 0 auto;
-    width: 70px;
+    width: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -264,7 +263,6 @@ input {
 }
 
 /* Hover Effects */
-
 
 #weather-container3:hover {
     transform: scale(1.1);
@@ -322,7 +320,12 @@ input {
     padding: 0;
 }
 
-
+.week-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    justify-content: space-between;
+}
 
 /* Therme Class */
 .therme {
@@ -347,12 +350,6 @@ input {
     #weather-container3 {
         width: 100%; /* Largeur des petites cartes */
     }
-    .week-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 10px;
-        justify-content: space-between;
-    }
 }
 
 @media only screen and (min-width: 900px) {
@@ -370,12 +367,6 @@ input {
     #weather-container3 {
         width: 100%; /* Largeur des petites cartes */
     }
-    .week-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 10px;
-        justify-content: space-between;
-    }
 }
 
 /* Media query for 730px to align small cards two by two */
@@ -392,32 +383,4 @@ input {
         width: 100%; /* Set width to 50% for two cards per row */
         margin: 10px; /* Add margin to create space between cards */
     }
-}
-.week-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
-    justify-content: space-between;
-}
-
-@media only screen and (max-width: 425px) {
-    .CONTAINERDECON {
-        flex-direction: row; /* Align cards side by side */
-        flex-wrap: wrap; /* Allow wrapping of cards */
-        justify-content: center; /* Center small cards horizontally */
-        padding: 0;
-        margin-left: 20px;
-    }
-
-    #weather-container3 {
-        width: 100%; /* Set width to 50% for two cards per row */
-        margin: 10px; /* Add margin to create space between cards */
-        padding-right: 20px;
-    }
-}
-.week-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-    justify-content: space-between;
 }

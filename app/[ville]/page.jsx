@@ -3,9 +3,8 @@
 import { useState, useEffect } from "react";
 import { Suspense } from "react";
 import Link from 'next/link';
-import Loading from "./loading";
+import Loader from './loading'; // Ensure this file exists
 import ColorSchemesExample from "../components/Navbar";
-
 
 const icons = {
   clear: '/assets/img/sun.png',
@@ -24,6 +23,7 @@ export default function Pageville({ params }) {
   const [weatherData, setWeatherData] = useState(null);
   const [forecastData, setForecastData] = useState(null);
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true); // Start as true to show loader
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -37,6 +37,7 @@ export default function Pageville({ params }) {
 
   useEffect(() => {
     const fetchWeatherData = async () => {
+      setIsLoading(true); // Start loading
       try {
         const currentWeatherResponse = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${params.ville}&appid=a5d25ce6acf4cdbbfba35338df6f794f&units=metric&lang=fr`);
         const forecastResponse = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${params.ville}&appid=a5d25ce6acf4cdbbfba35338df6f794f&units=metric&lang=fr`);
@@ -53,6 +54,8 @@ export default function Pageville({ params }) {
         setError(null);
       } catch (error) {
         setError("Impossible de récupérer les données météo. Veuillez réessayer plus tard.");
+      } finally {
+        setIsLoading(false); // End loading
       }
     };
 
@@ -101,8 +104,13 @@ export default function Pageville({ params }) {
     return Object.values(dailyData);
   };
 
+  // Show loader while loading
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
-    <Suspense fallback={<Loading />}>
+    <Suspense fallback={<Loader />}>
       <div>
         <ColorSchemesExample />
       </div>
@@ -139,8 +147,12 @@ export default function Pageville({ params }) {
                 <h1>{Math.round(weatherData.main.temp)}°C</h1>
 
                 <div className="updodwn">
-                  <h2> <img src={icons.thermup} className="therme" /> {Math.round(weatherData.main.temp_max)}°C</h2>
-                  <h2> <img src={icons.thermdown} className="therme"  /> {Math.round(weatherData.main.temp_min)}°C</h2>
+                  <h2>
+                    <img src={icons.thermup} className="therme" /> {Math.round(weatherData.main.temp_max)}°C
+                  </h2>
+                  <h2>
+                    <img src={icons.thermdown} className="therme" /> {Math.round(weatherData.main.temp_min)}°C
+                  </h2>
                 </div>
               </div>
             )
@@ -179,11 +191,16 @@ export default function Pageville({ params }) {
                 alt="Weather Icon"
                 src={getWeatherIcon(day.weather[0].main)}
               />
+              <h5>{Math.round(day.main.temp)}°C</h5>
 
               <div id="couleur">
-              <div className="updodwn">
-              <h1> <img src={icons.thermup} className="therme" />  {Math.round(day.main.temp_max)}°C</h1>
-                <h1> <img src={icons.thermdown} className="therme" /> {Math.round(day.main.temp_min)}°C</h1>
+                <div className="updodwn">
+                  <h1>
+                    <img src={icons.thermup} className="therme" /> {Math.round(day.main.temp_max)}°C
+                  </h1>
+                  <h1>
+                    <img src={icons.thermdown} className="therme" /> {Math.round(day.main.temp_min)}°C
+                  </h1>
                 </div>
               </div>
 
