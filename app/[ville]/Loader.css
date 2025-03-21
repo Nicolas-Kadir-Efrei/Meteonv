@@ -1,0 +1,38 @@
+/* Loader.css */
+.loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Full height */
+  font-size: 1.5rem; /* Font size for loading text */
+}
+
+.hypnotic {
+  width: 67.2px;
+  height: 28px;
+  border: 2.2px solid #ffffff;
+  border-radius: 50%;
+  display: grid;
+  animation: hypnotic-ds34hk 2s infinite linear;
+}
+
+.hypnotic:before,
+.hypnotic:after {
+  content: "";
+  grid-area: 1/1;
+  border: inherit;
+  border-radius: 50%;
+  animation: inherit;
+  animation-duration: 3s;
+}
+
+.hypnotic:after {
+  --s: -1;
+}
+
+@keyframes hypnotic-ds34hk {
+  100% {
+      transform: rotate(calc(var(--s, 1) * 1turn));
+  }
+}

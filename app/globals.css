@@ -1,0 +1,386 @@
+.titre-contact{
+    display: flex;
+    gap: 10px; /* Optionnel: Ajoute de l'espace entre les éléments */
+    align-items: center; /* Optionnel: Aligne verticalement les éléments au centre */
+    position: relative;
+
+}
+
+.couleur2 h1{
+    color: rgb(151, 145, 145);
+}
+
+.couleur2 h2{
+    color: white;
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+.ARHARHARH{
+background-color: #2c272aa5;
+border-radius: 15px;
+width: 80px;
+height: 40px;
+opacity: 1;
+border: none;
+}
+.ARHARHARH:hover{
+    background-color: #ffffff;
+    }
+
+    .pfpbg{
+        margin-top: 10px;
+        padding: 0;
+        border-radius: 50%;
+    }
+    
+    .con{
+        padding: 0;
+        margin: 0;
+        background-color: #1d1c24bd;
+        border-radius: 25px;
+        width: 500px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;  /* Permet de positionner l'élément en utilisant top et left */
+        top: 50%;  /* Centrage vertical */
+        left: 50%;  /* Centrage horizontal */
+        transform: translate(-50%, -50%);  /* Ajustement pour centrer l'élément par rapport à son milieu */   
+    }
+
+    .inputcon{
+        padding: 0;
+        margin: 15px;
+        height: 40px;
+        width: 700px;
+        background-color: transparent;
+        border-style: none;
+        color: #ffffff;
+        
+        }
+        .AHTAGRANDMERE{
+            color: #ffffff;
+            flex-direction: column;
+            background-color: transparent;
+            border-style: none;
+            width: 100px;
+            height: 50px;
+            border-radius: 25px;
+            
+            }
+            .AHTAGRANDMERE:hover{
+            background-color: #fff7ff44;
+            }
+            
+.Titre {
+    display: flex;
+    font-size: 20px;
+    background-color: #1d1c24bd;
+    width: 500px;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+    color: #fcfcfc;
+    font-style: italic;   
+    position: absolute; 
+    border-radius: 25px;
+    top: 10%;
+    left: 50%;  
+    transform: translate(-50%, -50%); 
+    margin-top: 40px;
+    }        
+
+/* Variables */
+:root {
+    --primary-color: #ffffff;
+    --secondary-color: #000000;
+    --background-color: #03030393;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --box-shadow: 0 4px 16px rgba(255, 255, 255, 0.1);
+    --backdrop-filter: blur(5px);
+}
+
+/* Global Styles */
+* {
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: 1s ease;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url(/assets/img/earth.png);   
+}
+
+/* Containers */
+.CONTAINERDECON {
+    display: flex;
+    align-items: center; /* Centrer les éléments verticalement */
+    justify-content: center; /* Centrer les éléments horizontalement */
+    flex-wrap: wrap; /* Permettre l'enroulement des éléments */
+    height: 100vh; /* Hauteur de la fenêtre */
+    margin: 0 auto; /* Centrer le conteneur */
+    width: 90%; /* Largeur de 90% de la fenêtre */
+    padding: 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#weather-container {
+    background-image: linear-gradient(45deg, #ffffff1c, #00000048);
+    opacity: 1;
+    width: 50%; /* Largeur en pourcentage pour s'adapter */
+    height: auto;
+    border-radius: 25px;
+    box-shadow: var(--box-shadow);
+    backdrop-filter: var(--backdrop-filter);
+    border: 1px solid var(--border-color);
+    text-align: center;
+    margin: 10px; /* Ajout d'une marge pour espacer les conteneurs */
+    padding: 10px;
+    transition: 0.5s ease;
+}
+
+#weather-container3 {
+    background-image: linear-gradient(45deg, #9d98982b, #00000048);
+    opacity: 1;
+    width: 30%; /* Largeur en pourcentage */
+    height: auto;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: var(--box-shadow);
+    backdrop-filter: var(--backdrop-filter);
+    border: 1px solid var(--border-color);
+    text-align: center;
+    margin: 10px; /* Ajout d'une marge pour espacer les conteneurs */
+    transition: 0.7s;
+}
+
+/* Elements */
+#weather-container h1,
+#weather-container h2,
+#weather-container h3,
+#weather-container h4,
+#weather-container h5,
+#weather-container h6 {
+    color: var(--primary-color); /* Utilisation de la variable pour plus de flexibilité */
+}
+
+#weather-container3 h1,
+#weather-container3 h2,
+#weather-container3 h3,
+#weather-container3 h4,
+#weather-container3 h5,
+#weather-container3 h6 {
+    color: var(--primary-color); /* Couleur pour les titres dans le conteneur #weather-container3 */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0; /* Pour éviter des marges par défaut qui pourraient causer des problèmes de mise en page */
+}
+
+h1 {
+    font-size: 45px;
+}
+
+h2 {
+    font-size: 26px;
+}
+
+h5 {
+    font-size: 13px;
+}
+
+input {
+    width: calc(100% - 16px);
+    padding: 8px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    margin-top: 20px;
+}
+
+.buttoncard {
+    background: #2c272a;
+    color: var(--primary-color);
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100px;
+    font-size: 15px;
+    transition: 0.5s;
+}
+
+.buttoncard:hover {
+    background: #fff7ff44;
+}
+
+#weather-icon {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 20px;
+    margin-bottom: 30px;
+    margin-top: 25px;
+}
+
+#weather-icon2 {
+    width: 78px;
+    height: 78px;
+    margin: 0 auto 5px;
+    margin-bottom: 10px;
+}
+
+#hourly-forecast {
+    margin-top: 50px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    display: flex;
+    white-space: nowrap;
+}
+
+.hourly-item {
+    flex: 0 0 auto;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 50px;
+    color: var(--primary-color);
+}
+
+.hourly-item img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 5px;
+}
+
+/* Hover Effects */
+
+#weather-container3:hover {
+    transform: scale(1.1);
+    z-index: 2;
+    background-color: var(--background-color);
+}
+
+/* Miscellaneous */
+.updodwn {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+}
+
+.weather-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 20px;
+    max-width: 200px;
+    position: relative;
+    left: 1;
+}
+
+.Humidity-Wind-data {
+    width: 100%;
+    padding: 10px;
+    padding-bottom: 10px;
+    color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.Humidity-Wind-data .col {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+}
+
+.Humidity-Wind-data .col span {
+    display: block;
+    font-size: 13px;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.Humidity-Wind-data .col img {
+    max-width: 20px;
+    max-height: 20px;
+    margin-top: 0;
+    padding: 0;
+}
+
+.week-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+/* Therme Class */
+.therme {
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 900px) {
+    .CONTAINERDECON {
+        flex-direction: row; /* Les cartes sont côte à côte */
+        align-items: center; /* Centrer les cartes verticalement */
+        justify-content: center; /* Centrer les cartes horizontalement */
+        gap: 10px; /* Réduction de l'écart entre les cartes */
+    }
+
+    #weather-container {
+        width: 90%; /* Largeur de la grande carte */
+    }
+
+    #weather-container3 {
+        width: 100%; /* Largeur des petites cartes */
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .CONTAINERDECON {
+        flex-direction: row; /* Les cartes sont côte à côte */
+        align-items: center; /* Centrer les cartes verticalement */
+        justify-content: center; /* Centrer les cartes horizontalement */
+        gap: 10px; /* Réduction de l'écart entre les cartes */
+    }
+
+    #weather-container {
+        width: 75%; /* Largeur de la grande carte */
+    }
+
+    #weather-container3 {
+        width: 100%; /* Largeur des petites cartes */
+    }
+}
+
+/* Media query for 730px to align small cards two by two */
+@media only screen and (max-width: 730px) {
+    .CONTAINERDECON {
+        flex-direction: row; /* Align cards side by side */
+        flex-wrap: wrap; /* Allow wrapping of cards */
+        justify-content: center; /* Center small cards horizontally */
+        padding: 0;
+        margin: 0;
+    }
+
+    #weather-container3 {
+        width: 100%; /* Set width to 50% for two cards per row */
+        margin: 10px; /* Add margin to create space between cards */
+    }
+}

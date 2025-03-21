@@ -1,0 +1,743 @@
+      <Link href="/paris">Paris</Link>
+      <Link href="/Marseille">Marseille</Link>
+      <Link href="/Lyon">Lyon</Link>
+
+      @media only screen and (min-width: 1024px) and (max-width: 1230px) {
+
+    *{
+        -webkit-transition: all 1s ease;
+            -moz-transition: all 1S ease;
+                -o-transition: all 1s ease;
+                    transition: 1s ease;
+    }     
+    
+    
+    .CONTAINERDECON {
+    
+           display: flex;
+           align-items: flex-start;
+           justify-content: flex-start;
+           height: 100vh;
+           margin: 0;
+           flex-direction: column;
+           padding-left: 50px;
+           background-repeat: no-repeat;
+           background-size: cover;
+       }
+       
+       /* Nouvelle classe pour aligner weather-container2 et weather-container3 */
+       .weather-row {
+           display: flex;
+           justify-content: space-between; /* Répartit l'espace entre les conteneurs */
+           gap: 20px; /* Ajoute de l'espace entre les deux conteneurs */
+           margin-top: 20px;
+           max-width: 200px;
+           position: relative;
+           left: 1;
+    
+       }
+    
+       #blury{
+        background-color: rgba(255, 255, 255, 0.285);
+        opacity: 1;
+    
+    
+       }
+    
+    
+       #weather-container{
+        background-image: linear-gradient(45deg, #882869, #db12a9);
+           opacity: 1;
+           width: 550px;
+           height: 700px;
+           border-radius: 25px;
+           box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
+           backdrop-filter: blur(10px);
+           border: 1px solid rgba(255, 255, 255, 0.1);
+           text-align: center;
+           margin-top: 10px;
+           position: relative;
+           top: 0; 
+           margin-left: 50px; 
+           padding: 10px;  
+     
+    
+       }
+       
+    
+       #weather-container2{
+           background-color:  rgba(111, 17, 212, 0.822);
+           max-width: 600px;
+           max-height: 515px;
+           padding: 40%;
+           border-radius: 25px;
+           box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
+           backdrop-filter: blur(10px);
+           border: 1px solid rgba(255, 255, 255, 0.1);
+           text-align: center;
+       }
+       
+       
+    
+       
+       h1, h2, p, label,h5 {
+           color: #ffffff;
+           margin: 8px 0;
+           font-size: 40px;
+       }
+    
+    
+       input {
+           width: calc(100% - 16px);
+           padding: 8px;
+           box-sizing: border-box;
+           border-radius: 10px;
+           border: 1px solid white;
+           margin-top: 20px;
+       }
+       
+       .buttoncard {
+           background: #db12a9;
+           color: rgb(255, 255, 255);
+           padding: 10px;
+           border: none;
+           border-radius: 10px;
+           cursor: pointer;
+           margin-top: 20px;
+           width: 100px;
+           font-size: 15px;
+           transition: 0.5s;
+    
+       }
+       
+       .buttoncard:hover {
+           background: #ea3dbf;
+       }
+       
+       #temp-div h1 {
+           font-size: 45px;
+           margin-top: -0px;
+           color: #fff;
+       }
+       
+       #weather-info {
+           font-size: 20px;
+           color: #ffffff;
+       }
+       
+       #weather-icon {
+           width: 100px;
+           height: 100px;   
+           margin: 0 auto 20px;
+           margin-bottom: 30px;
+           margin-top: 25px;
+       }
+       
+       #hourly-forecast {
+           margin-top: 50px;
+           overflow-x: auto;
+           white-space: nowrap;
+           display: flex;
+           justify-content: space-between;
+       }
+       #hourly-forecast::-webkit-scrollbar   {
+        width: 0;
+    
+    
+       }
+       .hourly-item {
+           flex: 0 0 auto;
+           width: 70px;
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           margin-right: 50px;
+           color: rgb(255, 255, 255);
+       }
+       
+       .hourly-item img {
+           width: 40px;
+           height: 40px;
+           margin-bottom: 5px;
+       }
+       
+       #hourly-heading {
+           color: #fff;
+           margin-top: 10px;
+       }
+       /*////////////////////////////////petite carte//////////////////////////*/
+       
+       #weather-container3 {
+        background-color: #db12a9;
+        opacity: 1;
+        width: 220px;
+        height: 350px;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 4px 16px rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: center;
+        margin-top: 10px;
+        transition: 0.7s;
+    }
+    #weather-container3 h1 {
+        color: #ffffff;
+    
+    }
+    
+    #weather-container3:hover {
+        transform: scale(1.2);
+        z-index: 2;
+        background-color: #eb6fcc;
+    
+    }
+    
+    #weather-icon2 {
+        width: 78px; /* 120px * 0.65 = 78px */
+        height: 78px; /* 120px * 0.65 = 78px */
+        margin: 0 auto 5px;
+        margin-bottom: 10px;
+    }
+    
+    #temp-div2 h5 {
+        font-size: 20px; /* 50px * 0.65 = 32.5px */
+        margin-top: 0;
+        color: #ffffff;
+    }
+    
+    
+    #weather-info2 h5    {
+        font-size: 13px; /* 40px * 0.65 = 26px */
+        color: #ffffff ;
+    }
+    
+    .Humidty-Wind-data {
+            width: 100%;
+            padding:10px;
+            padding-bottom: 10px;
+        
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .Humidty-Wind-data .col {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 11px;
+        }
+        
+        .Humidty-Wind-data .col span {
+            display: block;
+            font-size: 16px;
+        }
+        
+        .Humidty-Wind-data .col img {
+            width: 13px;
+            margin-top: 10px;
+        }
+    
+    .week-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 30px;
+        justify-content: space-between;
+    }
+    
+    }
+    
+
+
+
+@media only screen and (min-width: 427px) and (max-width: 1024px) {
+    *{
+        -webkit-transition: all 1s ease;
+            -moz-transition: all 1S ease;
+                -o-transition: all 1s ease;
+                    transition: 1s ease;
+    }     
+    
+    
+    .CONTAINERDECON {
+    
+           display: flex;
+           align-items: flex-start;
+           justify-content: flex-start;
+           height: 100vh;
+           margin: 0;
+           flex-direction: column;
+           padding-left: 50px;
+           background-repeat: no-repeat;
+           background-size: cover;
+       }
+       
+       /* Nouvelle classe pour aligner weather-container2 et weather-container3 */
+       .weather-row {
+           display: flex;
+           justify-content: space-between; /* Répartit l'espace entre les conteneurs */
+           gap: 20px; /* Ajoute de l'espace entre les deux conteneurs */
+           margin-top: 20px;
+           max-width: 200px;
+           position: relative;
+           left: 1;
+    
+       }
+    
+       #blury{
+        background-color: rgba(255, 255, 255, 0.285);
+        opacity: 1;
+    
+    
+       }
+    
+    
+       #weather-container{
+        background-image: linear-gradient(45deg, #882869, #db12a9);
+           opacity: 1;
+           width: 550px;
+           height: 700px;
+           border-radius: 25px;
+           box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
+           backdrop-filter: blur(10px);
+           border: 1px solid rgba(255, 255, 255, 0.1);
+           text-align: center;
+           margin-top: 10px;
+           position: relative;
+           top: 0; 
+           margin-left: 50px; 
+           padding: 10px;  
+     
+    
+       }
+       
+    
+       #weather-container2{
+           background-color:  rgba(111, 17, 212, 0.822);
+           max-width: 600px;
+           max-height: 515px;
+           padding: 40%;
+           border-radius: 25px;
+           box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
+           backdrop-filter: blur(10px);
+           border: 1px solid rgba(255, 255, 255, 0.1);
+           text-align: center;
+       }
+       
+       
+    
+       
+       h1, h2, label,h5 {
+           color: #ffffff;
+           margin: 8px 0;
+       }
+    
+    
+       input {
+           width: calc(100% - 16px);
+           padding: 8px;
+           box-sizing: border-box;
+           border-radius: 10px;
+           border: 1px solid white;
+           margin-top: 20px;
+       }
+       
+       .buttoncard {
+           background: #db12a9;
+           color: rgb(255, 255, 255);
+           padding: 10px;
+           border: none;
+           border-radius: 10px;
+           cursor: pointer;
+           margin-top: 20px;
+           width: 100px;
+           font-size: 15px;
+           transition: 0.5s;
+    
+       }
+       
+       .buttoncard:hover {
+           background: #ea3dbf;
+       }
+       
+       #temp-div h1 {
+           font-size: 45px;
+           margin-top: -0px;
+           color: #fff;
+       }
+       
+       #weather-info {
+           font-size: 20px;
+           color: #ffffff;
+       }
+       
+       #weather-icon {
+           width: 100px;
+           height: 100px;   
+           margin: 0 auto 20px;
+           margin-bottom: 30px;
+           margin-top: 25px;
+       }
+       
+       #hourly-forecast {
+           margin-top: 50px;
+           overflow-x: auto;
+           white-space: nowrap;
+           display: flex;
+           justify-content: space-between;
+       }
+       #hourly-forecast::-webkit-scrollbar   {
+        width: 0;
+    
+    
+       }
+       .hourly-item {
+           flex: 0 0 auto;
+           width: 70px;
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           margin-right: 50px;
+           color: rgb(255, 255, 255);
+       }
+       
+       .hourly-item img {
+           width: 40px;
+           height: 40px;
+           margin-bottom: 5px;
+       }
+       
+       #hourly-heading {
+           color: #fff;
+           margin-top: 10px;
+       }
+       /*////////////////////////////////petite carte//////////////////////////*/
+       
+       #weather-container3 {
+        background-color: #db12a9;
+        opacity: 1;
+        width: 220px;
+        height: 350px;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 4px 16px rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: center;
+        margin-top: 10px;
+        transition: 0.7s;
+    }
+    #weather-container3 h1 {
+        color: #ffffff;
+    
+    }
+    
+    #weather-container3:hover {
+        transform: scale(1.2);
+        z-index: 2;
+        background-color: #eb6fcc;
+    
+    }
+    
+    #weather-icon2 {
+        width: 78px; /* 120px * 0.65 = 78px */
+        height: 78px; /* 120px * 0.65 = 78px */
+        margin: 0 auto 5px;
+        margin-bottom: 10px;
+    }
+    
+    #temp-div2 h5 {
+        font-size: 20px; /* 50px * 0.65 = 32.5px */
+        margin-top: 0;
+        color: #ffffff;
+    }
+    
+    
+    #weather-info2 h5    {
+        font-size: 13px; /* 40px * 0.65 = 26px */
+        color: #ffffff ;
+    }
+    
+    .Humidty-Wind-data {
+            width: 100%;
+            padding:10px;
+            padding-bottom: 10px;
+        
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .Humidty-Wind-data .col {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 11px;
+        }
+        
+        .Humidty-Wind-data .col span {
+            display: block;
+            font-size: 16px;
+        }
+        
+        .Humidty-Wind-data .col img {
+            width: 13px;
+            margin-top: 10px;
+        }
+    
+    .week-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 30px;
+        justify-content: space-between;
+    }
+    
+    }
+    
+
+
+@media only screen and (min-width: 390px) and (max-width: 426px) {
+
+    *{
+        -webkit-transition: all 1s ease;
+            -moz-transition: all 1S ease;
+                -o-transition: all 1s ease;
+                    transition: 1s ease;
+    }     
+    
+    
+    .CONTAINERDECON {
+    
+           display: flex;
+           align-items: flex-start;
+           justify-content: flex-start;
+           height: 100vh;
+           margin: 0;
+           flex-direction: column;
+           padding-left: 50px;
+           background-repeat: no-repeat;
+           background-size: cover;
+           
+       }
+       
+       /* Nouvelle classe pour aligner weather-container2 et weather-container3 */
+       .weather-row {
+           display: flex;
+           gap: 20px; /* Ajoute de l'espace entre les deux conteneurs */
+           margin-top: 20px;
+           max-width: 200px;
+           position: absolute;
+           flex-direction: column;
+           justify-content: center; /* Centrer les petites cartes horizontalement */
+           align-items: flex-start; /* Centrer les petites cartes */
+           
+       }
+    
+       #blury{
+        background-color: rgba(255, 255, 255, 0.285);
+        opacity: 1;
+    
+    
+       }
+    
+    
+       #weather-container{
+        background-image: linear-gradient(45deg, #882869, #db12a9);
+        opacity: 1;
+        width: 420px;
+        height: 700px;
+        border-radius: 25px;
+        box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: center;
+        margin-top: 10px;
+        padding: 10px;  
+       }
+       
+    
+       #weather-container2{
+           background-color:  rgba(111, 17, 212, 0.822);
+           max-width: 600px;
+           max-height: 515px;
+           padding: 40%;
+           border-radius: 25px;
+           box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
+           backdrop-filter: blur(10px);
+           border: 1px solid rgba(255, 255, 255, 0.1);
+           text-align: center;
+       }
+       
+       
+    
+       
+       h1, h2, label,h5 {
+           color: #ffffff;
+           margin: 8px 0;
+       }
+    
+    
+       input {
+           width: calc(100% - 16px);
+           padding: 8px;
+           box-sizing: border-box;
+           border-radius: 10px;
+           border: 1px solid white;
+           margin-top: 20px;
+       }
+       
+       .buttoncard {
+           background: #db12a9;
+           color: rgb(255, 255, 255);
+           padding: 10px;
+           border: none;
+           border-radius: 10px;
+           cursor: pointer;
+           margin-top: 20px;
+           width: 100px;
+           font-size: 15px;
+           transition: 0.5s;
+    
+       }
+       
+       .buttoncard:hover {
+           background: #ea3dbf;
+       }
+       
+       #temp-div h1 {
+           font-size: 45px;
+           margin-top: -0px;
+           color: #fff;
+       }
+       
+       #weather-info {
+           font-size: 20px;
+           color: #ffffff;
+       }
+       
+       #weather-icon {
+           width: 100px;
+           height: 100px;   
+           margin: 0 auto 20px;
+           margin-bottom: 30px;
+           margin-top: 25px;
+       }
+       
+       #hourly-forecast {
+           margin-top: 50px;
+           overflow-x: auto;
+           white-space: nowrap;
+           display: flex;
+           justify-content: space-between;
+       }
+       #hourly-forecast::-webkit-scrollbar   {
+        width: 0;
+    
+    
+       }
+       .hourly-item {
+           flex: 0 0 auto;
+           width: 70px;
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           margin-right: 50px;
+           color: rgb(255, 255, 255);
+       }
+       
+       .hourly-item img {
+           width: 40px;
+           height: 40px;
+           margin-bottom: 5px;
+       }
+       
+       #hourly-heading {
+           color: #fff;
+           margin-top: 10px;
+       }
+       /*////////////////////////////////petite carte//////////////////////////*/
+       
+       #weather-container3 {
+        background-color: #db12a9;
+        opacity: 1;
+        width: 200px;
+        height: 350px;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 4px 16px rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: center;
+        margin-top: 10px;
+        transition: 0.7s;
+    }
+    #weather-container3 h1 {
+        color: #ffffff;
+    
+    }
+    
+    #weather-container3:hover {
+        transform: scale(1.2);
+        z-index: 2;
+        background-color: #eb6fcc;
+    
+    }
+    
+    #weather-icon2 {
+        font-size: 10px;
+        width: 78px; /* 120px * 0.65 = 78px */
+        height: 78px; /* 120px * 0.65 = 78px */
+        margin: 0 auto 5px;
+        margin-bottom: 10px;
+    }
+    
+    #temp-div2 h5 {
+        font-size: 20px; /* 50px * 0.65 = 32.5px */
+        margin-top: 0;
+        color: #ffffff;
+    }
+    
+    
+    #weather-info2 h5    {
+        font-size: 13px; /* 40px * 0.65 = 26px */
+        color: #ffffff ;
+    }
+    
+    .Humidty-Wind-data {
+            width: 100%;
+            padding:10px;
+            padding-bottom: 10px;
+        
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .Humidty-Wind-data .col {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 11px;
+        }
+        
+        .Humidty-Wind-data .col span {
+            display: block;
+            font-size: 16px;
+        }
+        
+        .Humidty-Wind-data .col img {
+            width: 13px;
+            margin-top: 10px;
+        }
+    
+    .week-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr ;
+        gap: 30px;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    
+    }
+    
